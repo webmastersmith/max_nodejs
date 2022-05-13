@@ -1,6 +1,12 @@
-import http from 'http'
-import { requestHandler } from './routes'
+import express from 'express'
+import 'dotenv/config'
+const app = express()
+app.use('/nothing', (req, res, next) => {
+  console.log('im a teapot!')
+  next() //process will die here if next() not called. -Generator.
+})
+app.use((req, res, next) => {
+  console.log('me too!')
+})
 
-const server = http.createServer(requestHandler)
-
-server.listen(3000) //port stays open
+app.listen(process.env.PORT)
