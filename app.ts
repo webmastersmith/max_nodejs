@@ -1,7 +1,7 @@
 import express from 'express'
 import 'dotenv/config'
-import { router as adminRoute } from './admin'
-import { router as shopRoute } from './shop'
+import { router as adminRoute } from './routes/admin'
+import { router as shopRoute } from './routes/shop'
 
 const app = express()
 

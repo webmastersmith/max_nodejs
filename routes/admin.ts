@@ -1,18 +1,17 @@
 import express from 'express'
+import path from 'path'
 
 export const router = express.Router()
 
 router.get('/add-product', (req, res, next) => {
   console.log('Add-Product page')
-  res.send(
-    '<form action="/admin/product" method="POST"><input type="text" name="title"}><button>Submit</button></form>'
+  res.sendFile(
+    path.join(process.cwd(), '..', 'view', 'admin', 'add-product.html')
   )
-  res.end()
 })
 router.post('/product', (req, res, next) => {
   console.log('Product page')
   const data = req.body
   console.log(data)
-  res.send('<h1>Product page</h1>')
-  res.end()
+  res.send('<h1>Product Page</h1>')
 })

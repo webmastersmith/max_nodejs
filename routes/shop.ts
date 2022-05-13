@@ -1,10 +1,11 @@
 import { Router } from 'express'
+import path from 'path'
 
 export const router = Router()
 
 router.get('/', (req, res, next) => {
   console.log('home')
-  res.send('<h1>Home</h1>')
-  res.end()
-  return
+  res.sendFile(path.join(__dirname, '..', 'view', 'shop.html'), (err) => {
+    console.log(err)
+  })
 })
