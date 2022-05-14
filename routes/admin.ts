@@ -7,7 +7,8 @@ export const router = express.Router()
 export const adminData = []
 router.get('/add-product', (req, res, next) => {
   console.log('Add-Product page')
-  res.sendFile(path.join(rootDir, 'views', 'add-product.html'))
+  res.render('add-product', { prods: adminData })
+  // res.sendFile(path.join(rootDir, 'views', 'add-product.html'))
 })
 router.post('/add-product', (req, res, next) => {
   console.log('Product page')
