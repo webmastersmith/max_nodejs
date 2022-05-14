@@ -1,17 +1,18 @@
 import express from 'express'
 import path from 'path'
+import rootDir from '../utils/path'
 
 export const router = express.Router()
 
+export const adminData = []
 router.get('/add-product', (req, res, next) => {
   console.log('Add-Product page')
-  res.sendFile(
-    path.join(process.cwd(), '..', 'view', 'admin', 'add-product.html')
-  )
+  res.sendFile(path.join(rootDir, 'views', 'add-product.html'))
 })
-router.post('/product', (req, res, next) => {
+router.post('/add-product', (req, res, next) => {
   console.log('Product page')
   const data = req.body
   console.log(data)
-  res.send('<h1>Product Page</h1>')
+  adminData.push(data)
+  res.redirect('/')
 })

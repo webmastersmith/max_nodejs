@@ -1,11 +1,11 @@
 import { Router } from 'express'
 import path from 'path'
+import rootDir from '../utils/path'
+import { adminData } from './admin'
 
 export const router = Router()
 
 router.get('/', (req, res, next) => {
-  console.log('home')
-  res.sendFile(path.join(__dirname, '..', 'view', 'shop.html'), (err) => {
-    console.log(err)
-  })
+  console.log('shop')
+  res.render('shop')
 })
