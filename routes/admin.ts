@@ -1,6 +1,4 @@
 import express from 'express'
-import path from 'path'
-import rootDir from '../utils/path'
 
 export const router = express.Router()
 
