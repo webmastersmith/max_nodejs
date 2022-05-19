@@ -3,8 +3,8 @@ import path from 'path'
 import 'dotenv/config'
 import { router as adminRoute } from './routes/admin'
 import { router as shopRoute } from './routes/shop'
+import { get404 } from './controllers/404'
 import rootDir from './utils/path'
-import { adminData } from './routes/admin'
 
 const app = express()
 app.set('view engine', 'ejs')
@@ -17,9 +17,7 @@ app.use('/admin', adminRoute)
 
 app.use(shopRoute)
 // 404 catch all. '/' not needed. it's default.
-app.use('/', (req, res, next) => {
-  res.status(404).render('404', { pageTitle: 'Page Not Found' })
-})
+app.use('/', get404)
 
 const PORT = process.env.PORT
 app.listen(PORT, () => {

@@ -6,9 +6,9 @@
     <%- include('./includes/navigation.ejs') %> 
 
     <main>
-      <% if (adminData.length > 0) {%>
+      <% if (products.length > 0) {%>
       <div class="grid">
-        <% adminData.forEach(({title}) => { %>
+        <% products.forEach(({title}) => { %>
         <article class="card product-item">
           <header class="card__header">
             <h1 class="product__title"><%= title %></h1>

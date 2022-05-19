@@ -1,10 +1,6 @@
 import { Router } from 'express'
-import path from 'path'
-import rootDir from '../utils/path'
-import { adminData } from './admin'
+import { shopAddProducts } from '../controllers/products'
 
 export const router = Router()
 
-router.get('/', (req, res, next) => {
-  res.render('shop', { adminData, pageTitle: 'Shop Products', path: '/' })
-})
+router.get('/', shopAddProducts)
