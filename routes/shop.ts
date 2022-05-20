@@ -1,5 +1,10 @@
 import { Router } from 'express'
-import { getShopIndex, getCart, getProductList } from '../controllers/shop'
+import {
+  getShopIndex,
+  getCart,
+  getProductList,
+  getCheckout,
+} from '../controllers/shop'
 
 export const router = Router()
 
@@ -9,4 +14,4 @@ router.get('/products', getProductList)
 
 router.get('/cart', getCart)
 
-router.get('/checkout')
+router.get('/checkout', getCheckout)

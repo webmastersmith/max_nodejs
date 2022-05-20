@@ -14,7 +14,6 @@ export const getShopIndex = (
   })
 }
 
-// products
 export const getProductList = (
   req: Request,
   res: Response,
@@ -28,8 +27,20 @@ export const getProductList = (
   })
 }
 
-//shop
 export const getCart = (req: Request, res: Response, next: NextFunction) => {
   const products = Product.fetchAll()
-  res.render('shop/cart', { products, pageTitle: 'Cart', path: '/cart' })
+  res.render('shop/cart', { products, pageTitle: 'Your Cart', path: '/cart' })
+}
+
+export const getCheckout = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const products = Product.fetchAll()
+  res.render('shop/checkout', {
+    products,
+    pageTitle: 'Checkout',
+    path: '/checkout',
+  })
 }

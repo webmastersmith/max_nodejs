@@ -23,7 +23,13 @@ export const postAddProduct = (
   next: NextFunction
 ) => {
   console.log('Product page')
-  const product = new Product(req.body.title)
+  const {
+    title = 'title',
+    imgUrl = 'https://cdn.pixabay.com/photo/2016/03/31/20/51/book-1296045_960_720.png',
+    description = 'A very interesting book about so many even more interesting things!',
+    price = 'no price',
+  } = req.body
+  const product = new Product(title, imgUrl, description, price)
   product.save()
   res.redirect('/')
 }
