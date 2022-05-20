@@ -15,6 +15,8 @@ export class Product {
       if (!fs.existsSync(dataPath)) {
         fs.writeFileSync(dataPath, JSON.stringify([]))
         this.fileExist = true
+      } else {
+        this.fileExist = true
       }
     }
     try {

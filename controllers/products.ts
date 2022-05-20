@@ -10,7 +10,7 @@ export const getAddProduct = (
   console.log('products', products)
 
   console.log('Add-Product page')
-  res.render('add-product', {
+  res.render('admin/add-product', {
     prods: products,
     pageTitle: 'Add Product',
     path: '/admin/add-product',
@@ -34,5 +34,5 @@ export const shopAddProducts = (
   next: NextFunction
 ) => {
   const products = Product.fetchAll()
-  res.render('shop', { products, pageTitle: 'Shop', path: '/' })
+  res.render('shop/product-list', { products, pageTitle: 'Shop', path: '/' })
 }
