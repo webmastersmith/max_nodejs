@@ -28,11 +28,37 @@ export const postAddProduct = (
   res.redirect('/')
 }
 
-export const shopAddProducts = (
+export const showAddProducts = (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   const products = Product.fetchAll()
-  res.render('shop/product-list', { products, pageTitle: 'Shop', path: '/' })
+  res.render('shop/product-list', {
+    products,
+    pageTitle: 'Product List',
+    path: '/',
+  })
+}
+
+// products
+export const products = (req: Request, res: Response, next: NextFunction) => {
+  const products = Product.fetchAll()
+  res.render('admin/products', {
+    products,
+    pageTitle: 'Admin Products',
+    path: '/admin/products',
+  })
+}
+export const editProducts = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const products = Product.fetchAll()
+  res.render('admin/edit-products', {
+    products,
+    pageTitle: 'Edit Products',
+    path: '/admin/edit-products',
+  })
 }
