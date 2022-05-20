@@ -1,13 +1,14 @@
 import { Request, Response, NextFunction } from 'express'
 import { Product } from '../models/product'
 
-export const products = []
-
 export const getAddProduct = (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
+  const products = Product.fetchAll()
+  console.log('products', products)
+
   console.log('Add-Product page')
   res.render('add-product', {
     prods: products,
@@ -22,9 +23,8 @@ export const postAddProduct = (
   next: NextFunction
 ) => {
   console.log('Product page')
-  const data = req.body
-  console.log(data)
-  const product = new Product(data)
+  const product = new Product(req.body.title)
+  product.save()
   res.redirect('/')
 }
 
@@ -33,5 +33,6 @@ export const shopAddProducts = (
   res: Response,
   next: NextFunction
 ) => {
+  const products = Product.fetchAll()
   res.render('shop', { products, pageTitle: 'Shop', path: '/' })
 }
