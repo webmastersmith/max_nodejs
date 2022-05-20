@@ -1,6 +1,12 @@
 import { Router } from 'express'
-import { showAddProducts } from '../controllers/products'
+import { getShopIndex, getCart, getProductList } from '../controllers/shop'
 
 export const router = Router()
 
-router.get('/', showAddProducts)
+router.get('/', getShopIndex)
+
+router.get('/products', getProductList)
+
+router.get('/cart', getCart)
+
+router.get('/checkout')

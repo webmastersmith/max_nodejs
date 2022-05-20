@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express'
 import { Product } from '../models/product'
 
+//ADMIN
 export const getAddProduct = (
   req: Request,
   res: Response,
@@ -16,7 +17,6 @@ export const getAddProduct = (
     path: '/admin/add-product',
   })
 }
-
 export const postAddProduct = (
   req: Request,
   res: Response,
@@ -28,21 +28,11 @@ export const postAddProduct = (
   res.redirect('/')
 }
 
-export const showAddProducts = (
+export const adminProducts = (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  const products = Product.fetchAll()
-  res.render('shop/product-list', {
-    products,
-    pageTitle: 'Product List',
-    path: '/',
-  })
-}
-
-// products
-export const products = (req: Request, res: Response, next: NextFunction) => {
   const products = Product.fetchAll()
   res.render('admin/products', {
     products,
@@ -50,15 +40,15 @@ export const products = (req: Request, res: Response, next: NextFunction) => {
     path: '/admin/products',
   })
 }
-export const editProducts = (
+export const editAdminProducts = (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   const products = Product.fetchAll()
-  res.render('admin/edit-products', {
+  res.render('admin/edit-product', {
     products,
-    pageTitle: 'Edit Products',
-    path: '/admin/edit-products',
+    pageTitle: 'Edit Product',
+    path: '/admin/products',
   })
 }
