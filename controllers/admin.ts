@@ -22,7 +22,6 @@ export const postAddProduct = (
   res: Response,
   next: NextFunction
 ) => {
-  console.log('Product page')
   const {
     title = 'title',
     imgUrl = 'https://cdn.pixabay.com/photo/2016/03/31/20/51/book-1296045_960_720.png',
