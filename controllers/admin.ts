@@ -8,7 +8,6 @@ export const getAddProduct = (
   next: NextFunction
 ) => {
   const products = Product.fetchAll()
-  console.log('products', products)
 
   console.log('Add-Product page')
   res.render('admin/add-product', {
@@ -45,7 +44,7 @@ export const adminProducts = (
     path: '/admin/products',
   })
 }
-export const editAdminProducts = (
+export const editProduct = (
   req: Request,
   res: Response,
   next: NextFunction

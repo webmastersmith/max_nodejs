@@ -1,5 +1,6 @@
 import fs from 'fs'
 import path from 'path'
+import { randomUUID } from 'crypto'
 
 const dataPath = path.join(process.cwd(), 'data', 'product.json')
 export class Product {
@@ -18,6 +19,7 @@ export class Product {
     this.description = description
     this.price = price
   }
+  uuid = randomUUID()
   fileExist = false
   save() {
     if (!this.fileExist) {

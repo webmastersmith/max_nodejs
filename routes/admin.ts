@@ -12,4 +12,4 @@ router.post('/add-product', postAddProduct)
 
 router.get('/products', adminProducts)
 
-router.get('/product-list')
+router.get('/edit-product')
