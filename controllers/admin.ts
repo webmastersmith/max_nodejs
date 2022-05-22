@@ -44,15 +44,45 @@ export const adminProducts = (
     path: '/admin/products',
   })
 }
-export const editProduct = (
+
+export const getEditProduct = (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
+  const id = req.params?.uuid ?? ''
+
   const products = Product.fetchAll()
+  const [product] = products.filter(({ uuid }) => id === uuid)
+  // console.log(product)
+
   res.render('admin/edit-product', {
-    products,
+    product,
     pageTitle: 'Edit Product',
-    path: '/admin/products',
+    path: '/admin/edit-product',
   })
+}
+export const postEditProduct = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const { title = '', imgUrl = '', description = '', price = '' } = req.body
+
+  const id = req.params?.uuid ?? ''
+
+  const _products = Product.fetchAll()
+  const idx = _products.findIndex((item) => item.uuid === id)
+  const product = _products.splice(idx, 1)[0]
+  // console.log('product', product)
+  // console.log('products', _products)
+
+  // products.save()
+  res.redirect('/admin/products')
+
+  // res.render('admin/edit-product', {
+  //   products,
+  //   pageTitle: 'Edit Product',
+  //   path: '/admin/edit-product',
+  // })
 }

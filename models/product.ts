@@ -2,6 +2,14 @@ import fs from 'fs'
 import path from 'path'
 import { randomUUID } from 'crypto'
 
+type Model = {
+  title: string
+  imgUrl: string
+  description: string
+  price: string
+  uuid: string
+  fileExist: boolean
+}
 const dataPath = path.join(process.cwd(), 'data', 'product.json')
 export class Product {
   title: string
@@ -35,7 +43,7 @@ export class Product {
     const products = JSON.parse(fs.readFileSync(dataPath, 'utf-8'))
     fs.writeFileSync(dataPath, JSON.stringify([...products, this]))
   }
-  static fetchAll() {
+  static fetchAll(): Model[] {
     try {
       return JSON.parse(fs.readFileSync(dataPath, 'utf-8'))
     } catch (error) {
