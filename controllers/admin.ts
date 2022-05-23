@@ -9,7 +9,6 @@ export const getAddProduct = (
 ) => {
   const products = Product.fetchAll()
 
-  console.log('Add-Product page')
   res.render('admin/add-product', {
     prods: products,
     pageTitle: 'Add Product',
@@ -55,7 +54,6 @@ export const getEditProduct = (
 
   const products = Product.fetchAll()
   const [product] = products.filter(({ uuid }) => id === uuid)
-  // console.log(product)
 
   res.render('admin/edit-product', {
     product,

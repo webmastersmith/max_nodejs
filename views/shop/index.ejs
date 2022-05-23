@@ -8,7 +8,7 @@
     <main>
       <% if (products.length > 0) {%>
       <div class="grid">
-        <% products.forEach(({title, imgUrl, description, price}) => { %>
+        <% products.forEach(({title, imgUrl, description, price, uuid}) => { %>
         <article class="card product-item">
           <header class="card__header">
             <h1 class="product__title"><%= title %></h1>
@@ -24,7 +24,7 @@
             <p class="product__description"><%= description %></p>
           </div>
           <div class="card__actions">
-            <button class="btn">Add to Cart</button>
+            <%- include('../includes/add-to-cart.ejs', {uuid}) %> 
           </div>
         </article>
         <% }) %>

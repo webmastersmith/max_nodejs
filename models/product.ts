@@ -53,4 +53,11 @@ export class Product {
       return []
     }
   }
+  static getProduct(id: string): Product {
+    return this.fetchAll().filter((item) => item.uuid === id)[0]
+  }
+  static deleteProduct(id: string): void {
+    const products = this.fetchAll().filter((item) => item.uuid !== id)
+    fs.writeFileSync(dataPath, JSON.stringify(products))
+  }
 }
