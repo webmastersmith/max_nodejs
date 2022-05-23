@@ -5,6 +5,7 @@ import {
   adminProducts,
   getEditProduct,
   postEditProduct,
+  postDeleteProduct,
 } from '../controllers/admin'
 
 export const router = express.Router()
@@ -16,3 +17,5 @@ router.get('/products', adminProducts)
 
 router.get('/edit-product/:uuid', getEditProduct)
 router.post('/edit-product/:uuid', postEditProduct)
+
+router.get('/delete-product/:uuid', postDeleteProduct)

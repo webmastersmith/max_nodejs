@@ -28,6 +28,8 @@ export const postAddProduct = (
     price = 'no price',
   } = req.body
   const product = new Product(title, imgUrl, description, price)
+  console.log('new product', product)
+
   product.save()
   res.redirect('/')
 }
@@ -71,18 +73,28 @@ export const postEditProduct = (
 
   const id = req.params?.uuid ?? ''
 
-  const _products = Product.fetchAll()
-  const idx = _products.findIndex((item) => item.uuid === id)
-  const product = _products.splice(idx, 1)[0]
-  // console.log('product', product)
-  // console.log('products', _products)
+  const products = Product.fetchAll()
+  const idx = products.findIndex((item) => item.uuid === id)
+  const product = products.splice(idx, 1)[0]
 
-  // products.save()
+  product.title = title
+  product.description = description
+  product.imgUrl = imgUrl
+  product.price = price
+  products.splice(idx, 0, product)
+  Product.saveAll(products)
+
   res.redirect('/admin/products')
+}
+export const postDeleteProduct = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const id = req.params?.uuid ?? ''
+  console.log('id', id)
+  const products = Product.fetchAll().filter((item) => item.uuid !== id)
+  Product.saveAll(products)
 
-  // res.render('admin/edit-product', {
-  //   products,
-  //   pageTitle: 'Edit Product',
-  //   path: '/admin/edit-product',
-  // })
+  res.redirect('/admin/products')
 }

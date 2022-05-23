@@ -1,9 +1,9 @@
 [
   {
-    "title": "Mountain Bike",
-    "imgUrl": "https://www.revelbikes.com/wp-content/uploads/2019/02/Revel_Rail_Mint_Dirty-RS-2-1.jpg",
-    "description": "The absolute best full suspension mountain bikes in the world.",
-    "price": "399.89",
+    "title": "Mountain Bike ",
+    "imgUrl": "https://www.revelbikes.com/wp-content/uploads/2019/02/Revel_Rail_Mint_Dirty-RS-2-1.jpg ",
+    "description": "The best full suspension mountain bikes in the world. ",
+    "price": "399.89 ",
     "uuid": "ca6c226c-8f44-4c96-9494-b45a6896313a",
     "fileExist": true
   },
@@ -16,14 +16,6 @@
     "fileExist": true
   },
   {
-    "title": "Tree",
-    "imgUrl": "https://dictionary.cambridge.org/us/images/thumb/tree_noun_001_18152.jpg?version=5.0.239",
-    "description": "a tall plant that has a wooden trunk and branches that grow from its upper part",
-    "price": "69.99",
-    "uuid": "ca6c226c-8f44-4c96-9494-b25a6896322a",
-    "fileExist": true
-  },
-  {
     "title": "Dog Chew Toy",
     "imgUrl": "https://i5.walmartimages.com/asr/3b19c456-a603-468f-982e-1d67abac7d11.34fe9dd96ee336651160358409f6cd0a.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
     "description": "Dog Chew Toys for Aggressive Chewers Large Breed,Tough Durable Puppy Chew Toy for Medium Large Dogs",
@@ -32,11 +24,11 @@
     "fileExist": true
   },
   {
-    "title": "book 2",
-    "imgUrl": "https://f76a5abc945c04b00871-d3b39c2fcc1332eab682d53d2580a4ef.ssl.cf2.rackcdn.com/2019/05/book-6-300x201.jpg",
-    "description": "A good book!",
-    "price": "3.00",
-    "uuid": "ca6c226c-8f44-4c96-9494-b25a6896313a",
+    "title": "Tree",
+    "imgUrl": "https://dictionary.cambridge.org/us/images/thumb/tree_noun_001_18152.jpg?version=5.0.239",
+    "description": "a tall plant that has a wooden trunk and branches that grow from its upper part",
+    "price": "69.99",
+    "uuid": "ca6c226c-8f44-4c96-9494-b25a6896322a",
     "fileExist": true
   }
 ]
