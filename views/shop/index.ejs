@@ -6,7 +6,6 @@
     <%- include('../includes/navigation.ejs') %> 
 
     <main>
-      <h1>Shop Index Page</h1>
       <% if (products.length > 0) {%>
       <div class="grid">
         <% products.forEach(({title, imgUrl, description, price}) => { %>

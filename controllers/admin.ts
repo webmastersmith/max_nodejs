@@ -28,7 +28,6 @@ export const postAddProduct = (
     price = 'no price',
   } = req.body
   const product = new Product(title, imgUrl, description, price)
-  console.log('new product', product)
 
   product.save()
   res.redirect('/')
@@ -92,7 +91,6 @@ export const postDeleteProduct = (
   next: NextFunction
 ) => {
   const id = req.params?.uuid ?? ''
-  console.log('id', id)
   const products = Product.fetchAll().filter((item) => item.uuid !== id)
   Product.saveAll(products)
 

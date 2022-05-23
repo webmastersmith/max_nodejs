@@ -10,6 +10,6 @@
   "outDir": "dist"
 },
 "lib": ["esnext"],
-"include": ["**/*.ts", "**/*.tsx"],
+"include": ["**/*.ts", "**/*.tsx", "public/js/main.js"],
 "exclude": ["node_modules"]
 }

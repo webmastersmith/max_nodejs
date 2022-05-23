@@ -31,6 +31,14 @@ export const getCart = (req: Request, res: Response, next: NextFunction) => {
   const products = Product.fetchAll()
   res.render('shop/cart', { products, pageTitle: 'Your Cart', path: '/cart' })
 }
+export const getOrders = (req: Request, res: Response, next: NextFunction) => {
+  const products = Product.fetchAll()
+  res.render('shop/orders', {
+    products,
+    pageTitle: 'Your Orders',
+    path: '/orders',
+  })
+}
 
 export const getCheckout = (
   req: Request,

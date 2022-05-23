@@ -28,9 +28,9 @@
             <a href="/admin/edit-product/<%= uuid %> ">
               <button class="btn" data-uuid="<%= uuid %> ">Edit</button>
             </a>
-            <a href="/admin/delete-product/<%= uuid %> ">
-              <button class="btn" data-uuid="<%= uuid %> ">Delete</button>
-            </a>
+            <form action="/admin/delete-product/<%= uuid %> " method="POST">
+              <button class="btn" type="submit" ">Delete</button>
+            </form>
           </div>
         </article>
         <% }) %>
