@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from 'express'
+import { Cart } from '../models/cart'
 import { Product } from '../models/product'
 
 export const getShopIndex = (
@@ -69,9 +70,9 @@ export const getCheckout = (
 }
 
 export const addToCart = (req: Request, res: Response, next: NextFunction) => {
-  const id = req.body?.uuid ?? ''
-  const products = Product.fetchAll()
-  // console.log('id', id)
+  const id: string = req.body?.uuid?.trim() ?? ''
+  const product = Product.fetchAll().filter((item) => item.uuid === id)[0]
+  Cart.addToCart(product)
 
   res.redirect('/cart')
   // res.render('shop/checkout', {

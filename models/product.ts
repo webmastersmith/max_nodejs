@@ -16,20 +16,22 @@ export class Product {
   imgUrl: string
   description: string
   price: string
+  uuid: string
+  private fileExist: boolean
   constructor(
     title: string,
     imgUrl: string,
     description: string,
     price: string
   ) {
-    this.title = title
-    this.imgUrl = imgUrl
-    this.description = description
-    this.price = price
+    this.title = title.trim()
+    this.imgUrl = imgUrl.trim()
+    this.description = description.trim()
+    this.price = price.trim()
+    this.uuid = randomUUID()
+    this.fileExist = false
   }
-  uuid = randomUUID()
-  fileExist = false
-  save(): void {
+  public save(): void {
     if (!this.fileExist) {
       // only run this fn once.
       // check if file exist, if not create it.

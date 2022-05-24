@@ -1,9 +1,9 @@
 [
   {
-    "title": "Mountain Bike ",
-    "imgUrl": "https://www.revelbikes.com/wp-content/uploads/2019/02/Revel_Rail_Mint_Dirty-RS-2-1.jpg ",
-    "description": "The best full suspension mountain bikes in the world. ",
-    "price": "399.89 ",
+    "title": "Mountain Bike",
+    "imgUrl": "https://www.revelbikes.com/wp-content/uploads/2019/02/Revel_Rail_Mint_Dirty-RS-2-1.jpg",
+    "description": "The best full suspension mountain bikes in the world.",
+    "price": "399.89",
     "uuid": "ca6c226c-8f44-4c96-9494-b45a6896313a",
     "fileExist": true
   },
@@ -29,6 +29,14 @@
     "description": "a tall plant that has a wooden trunk and branches that grow from its upper part",
     "price": "69.99",
     "uuid": "ca6c226c-8f44-4c96-9494-b25a6896322a",
+    "fileExist": true
+  },
+  {
+    "title": "Cat Toy",
+    "imgUrl": "https://m.media-amazon.com/images/I/71MzGP3vfVL._AC_SL1500_.jpg",
+    "description": "Best cat toy ever!",
+    "price": "19.99",
+    "uuid": "b3deea72-a81a-4bbb-951b-813c3d10b8f6",
     "fileExist": true
   }
 ]
