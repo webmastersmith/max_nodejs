@@ -8,18 +8,22 @@ const cartArr: Product[] = []
 export class Cart {
   static addToCart(product: Product): void {
     fs.readFile(cartPath, 'utf-8', (err, data) => {
-      let cart = { products: [], total: 0 }
+      let cart: { products: Product[]; total: number } = {
+        products: [],
+        total: 0,
+      }
       if (!err) {
         cart = JSON.parse(data)
       }
 
-      let { products } = cart as { products: Product[]; total: number }
+      let { products } = cart
 
       // if product is in cart just increase qty. else add item to cart.
       if (products.some((p) => p.uuid === product.uuid)) {
         for (let i = 0; i < products.length; i++) {
           if (product.uuid === products[i].uuid) {
             products[i].qty++
+            break
           }
         }
       } else {
