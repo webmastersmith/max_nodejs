@@ -5,7 +5,8 @@
     "description": "The best full suspension mountain bikes in the world.",
     "price": "399.89",
     "uuid": "ca6c226c-8f44-4c96-9494-b45a6896313a",
-    "fileExist": true
+    "fileExist": true,
+    "qty": 1
   },
   {
     "title": "Adventurer",
@@ -13,7 +14,8 @@
     "description": "The Adventurer is a mens twisted straw, genuine Panama fedora. Our weavers skilfully twist the straw in a twine-like fashion to create a textured Panama hat that is durable, rollable and well-ventilated.",
     "price": "39.99",
     "uuid": "ca6c226c-8f44-4c96-9494-b25a6896113a",
-    "fileExist": true
+    "fileExist": true,
+    "qty": 1
   },
   {
     "title": "Dog Chew Toy",
@@ -21,7 +23,8 @@
     "description": "Dog Chew Toys for Aggressive Chewers Large Breed,Tough Durable Puppy Chew Toy for Medium Large Dogs",
     "price": "6.99",
     "uuid": "ca6c226c-8f44-4c96-9494-b25a6896314a",
-    "fileExist": true
+    "fileExist": true,
+    "qty": 1
   },
   {
     "title": "Tree",
@@ -29,7 +32,8 @@
     "description": "a tall plant that has a wooden trunk and branches that grow from its upper part",
     "price": "69.99",
     "uuid": "ca6c226c-8f44-4c96-9494-b25a6896322a",
-    "fileExist": true
+    "fileExist": true,
+    "qty": 1
   },
   {
     "title": "Cat Toy",
@@ -37,6 +41,7 @@
     "description": "Best cat toy ever!",
     "price": "19.99",
     "uuid": "b3deea72-a81a-4bbb-951b-813c3d10b8f6",
-    "fileExist": true
+    "fileExist": true,
+    "qty": 1
   }
 ]

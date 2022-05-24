@@ -18,6 +18,7 @@ export class Product {
   price: string
   uuid: string
   private fileExist: boolean
+  qty: number
   constructor(
     title: string,
     imgUrl: string,
@@ -30,6 +31,7 @@ export class Product {
     this.price = price.trim()
     this.uuid = randomUUID()
     this.fileExist = false
+    this.qty = 1
   }
   public save(): void {
     if (!this.fileExist) {

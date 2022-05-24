@@ -12,11 +12,27 @@ export class Cart {
       if (!err) {
         cart = JSON.parse(data)
       }
-      // file exist so add product to it.
-      fs.writeFileSync(
-        cartPath,
-        JSON.stringify({ products: [...cart.products, product], total: 0 })
+
+      let { products } = cart as { products: Product[]; total: number }
+
+      // if product is in cart just increase qty. else add item to cart.
+      if (products.some((p) => p.uuid === product.uuid)) {
+        for (let i = 0; i < products.length; i++) {
+          if (product.uuid === products[i].uuid) {
+            products[i].qty++
+          }
+        }
+      } else {
+        products = [...products, product]
+      }
+
+      const total = products.reduce(
+        (acc, cur) => parseFloat(cur.price) * cur.qty + acc,
+        0
       )
+
+      // file exist so add product to it.
+      fs.writeFileSync(cartPath, JSON.stringify({ products, total }))
     })
   }
 
