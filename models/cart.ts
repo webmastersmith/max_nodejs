@@ -3,12 +3,21 @@ import path from 'path'
 import { Product } from './product'
 
 const cartPath = path.join(process.cwd(), 'data', 'cart.json')
-const cartArr: Product[] = []
-
+type CartType = {
+  products: Product[]
+  total: number
+}
 export class Cart {
+  static getTotal(products: Product[]): number {
+    return products.reduce(
+      (acc, cur) => parseFloat(cur.price) * cur.qty + acc,
+      0
+    )
+  }
+
   static addToCart(product: Product): void {
     fs.readFile(cartPath, 'utf-8', (err, data) => {
-      let cart: { products: Product[]; total: number } = {
+      let cart: CartType = {
         products: [],
         total: 0,
       }
@@ -30,17 +39,39 @@ export class Cart {
         products = [...products, product]
       }
 
-      const total = products.reduce(
-        (acc, cur) => parseFloat(cur.price) * cur.qty + acc,
-        0
-      )
-
       // file exist so add product to it.
-      fs.writeFileSync(cartPath, JSON.stringify({ products, total }))
+      fs.writeFileSync(
+        cartPath,
+        JSON.stringify({ products, total: this.getTotal(products) })
+      )
+    })
+  } //end addToCart
+
+  static deleteFromCart(id: string) {
+    fs.readFile(cartPath, 'utf-8', (err, data) => {
+      let cart: CartType = { products: [], total: 0 }
+      if (!err) {
+        cart = JSON.parse(data)
+      }
+      // check if item is in cart, if so, delete it.
+      if (cart.products.some((p) => p.uuid === id)) {
+        const products = cart.products.filter((product) => product.uuid !== id)
+        fs.writeFileSync(
+          cartPath,
+          JSON.stringify({ products, total: this.getTotal(products) })
+        )
+      }
     })
   }
 
-  static fetchAll() {
-    return cartArr
+  static fetchAll(): CartType {
+    let cart: CartType
+    try {
+      cart = JSON.parse(fs.readFileSync(cartPath, 'utf-8'))
+    } catch (error) {
+      cart = { products: [], total: 0 }
+      console.log(error)
+    }
+    return cart
   }
 }

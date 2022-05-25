@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from 'express'
+import { Cart } from '../models/cart'
 import { Product } from '../models/product'
 
 //ADMIN
@@ -91,6 +92,8 @@ export const postDeleteProduct = (
   const id = req.params?.uuid ?? ''
   const products = Product.fetchAll().filter((item) => item.uuid !== id)
   Product.saveAll(products)
+  // delete from cart if added
+  Cart.deleteFromCart(id)
 
   res.redirect('/admin/products')
 }

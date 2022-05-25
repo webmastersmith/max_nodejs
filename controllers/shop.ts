@@ -43,8 +43,13 @@ export const getProductListDetail = (
 }
 
 export const getCart = (req: Request, res: Response, next: NextFunction) => {
-  const products = Product.fetchAll()
-  res.render('shop/cart', { products, pageTitle: 'Your Cart', path: '/cart' })
+  const { products, total } = Cart.fetchAll()
+  res.render('shop/cart', {
+    products,
+    total,
+    pageTitle: 'Your Cart',
+    path: '/cart',
+  })
 }
 
 export const getOrders = (req: Request, res: Response, next: NextFunction) => {
@@ -75,9 +80,14 @@ export const addToCart = (req: Request, res: Response, next: NextFunction) => {
   Cart.addToCart(product)
 
   res.redirect('/cart')
-  // res.render('shop/checkout', {
-  //   products,
-  //   pageTitle: 'Checkout',
-  //   path: '/checkout',
-  // })
+}
+
+export const cartDeleteItem = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const id: string = req.body?.uuid?.trim() ?? ''
+  Cart.deleteFromCart(id)
+  res.redirect('/cart')
 }

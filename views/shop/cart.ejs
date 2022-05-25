@@ -6,6 +6,24 @@
     <%- include('../includes/navigation.ejs') %> 
 
     <main>
-     <h1>This is the cart</h1>
+     <% if (products.length > 0) { %>
+      <ul>
+      <% for (const product of products) { %> 
+        <% const {title, description, price, qty, imgUrl, uuid} = product %> 
+        <li>
+
+          <p><%=title%> (<%=qty%> )</p>
+          <form action="/cart-delete-item" method="post">
+            <button type="submit" class="btn">Delete</button>
+            <input type="hidden" name="uuid" id="uuid" value="<%=uuid%>">
+          </form>
+
+        </li>
+
+        <% } %> 
+      </ul>
+     <% } else { %>
+        <h1>Nothing in the cart</h1>
+      <% } %>
     </main>
     <%- include('../includes/end.ejs') %> 
